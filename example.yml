@@ -1,4 +1,3 @@
----
 variant: fcos
 version: 1.5.0
 passwd:
@@ -6,3 +5,6 @@ passwd:
     - name: zolo
       ssh_authorized_keys:
         - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXqGbpaanEcirEpHQiZgTuIDD2EKLKXbYvVUjt4x1SZqyAVy9G/8wFjrAy7NfNgBpr8qwORi6Jkvl+GyrreSr+XE3MOOYrk3B2DTDCwwj4N9gk/BKfnOFC9kw1IwhedJ+5J+NY/oXg+lx7ZDA4DcU++d7J9UKhGReUfMdx2sM5d2hXZaRdqUwlucg9Z20VZ1Q/QBpeiACH3VBuQLh3JC76FbNOi1a9sPSnVSvkBkcUVGehaXPVM+h71dfpIFiuX3J0MwN7pcO32qYS5uVonhNUfWfohFjhJPuSiH7JRa7mwlB0dOaBpsgzqJi+/hUpf6u5vTvGczOy5qKrAJpf44ersrUyoA0xW0Ks9Ds8ct5y6KYJbu/z0YfJGHDteVaW63y9DKXM0QwZ2UO9xytvnV0xaVtfdOcOYhNrEusAJGUUOiWRjk75VtpTWM4deBPzB36FL/KFaERKZz8QpbQmEuL2dQ8YmRinbTy+tiUksaMhuf8GyEfSocLSKd2INdsM1m8= zolo@DESKTOP-E2CI211
+      groups:
+        - wheel
+        - sudo
