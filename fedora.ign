@@ -5,11 +5,11 @@
   "passwd": {
     "users": [
       {
-        "name": "zolo",
         "groups": [
           "sudo",
           "docker"
         ],
+        "name": "zolo",
         "sshAuthorizedKeys": [
           "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXqGbpaanEcirEpHQiZgTuIDD2EKLKXbYvVUjt4x1SZqyAVy9G/8wFjrAy7NfNgBpr8qwORi6Jkvl+GyrreSr+XE3MOOYrk3B2DTDCwwj4N9gk/BKfnOFC9kw1IwhedJ+5J+NY/oXg+lx7ZDA4DcU++d7J9UKhGReUfMdx2sM5d2hXZaRdqUwlucg9Z20VZ1Q/QBpeiACH3VBuQLh3JC76FbNOi1a9sPSnVSvkBkcUVGehaXPVM+h71dfpIFiuX3J0MwN7pcO32qYS5uVonhNUfWfohFjhJPuSiH7JRa7mwlB0dOaBpsgzqJi+/hUpf6u5vTvGczOy5qKrAJpf44ersrUyoA0xW0Ks9Ds8ct5y6KYJbu/z0YfJGHDteVaW63y9DKXM0QwZ2UO9xytvnV0xaVtfdOcOYhNrEusAJGUUOiWRjk75VtpTWM4deBPzB36FL/KFaERKZz8QpbQmEuL2dQ8YmRinbTy+tiUksaMhuf8GyEfSocLSKd2INdsM1m8= zolo@DESKTOP-E2CI211"
         ]
@@ -20,28 +20,28 @@
     "files": [
       {
         "path": "/etc/docker/daemon.json",
-        "mode": 420,
         "contents": {
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/0zMQQrCMBBG4X1OMfxrI9VlwZOIi9COIZJ0SiaGVundJSri+j2+pyECLzxYmYuipzMmV0Ll/eCz3Ocxh8r5pKsWTiMuu/ZH8fYT0BNuKpO9hsj4xa/VcCIkt1gND27zoesSDNH2frVIdp7/MKmco1uPMJt5BQAA///9NOUpnAAAAA=="
-        }
+        },
+        "mode": 420
       }
     ]
   },
   "systemd": {
     "units": [
       {
-        "name": "docker-install.service",
+        "contents": "[Unit]\nDescription=Install Docker CE\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/rpm-ostree install --apply-live moby-engine\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
-        "contents": "[Unit]\nDescription=Install Docker CE\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/rpm-ostree install --apply-live moby-engine\n\n[Install]\nWantedBy=multi-user.target"
+        "name": "docker-install.service"
       },
       {
-        "name": "docker.service",
-        "enabled": true
+        "enabled": true,
+        "name": "docker.service"
       },
       {
-        "name": "docker.socket",
-        "enabled": true
+        "enabled": true,
+        "name": "docker.socket"
       }
     ]
   }
