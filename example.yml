@@ -1,34 +1,5 @@
 variant: fcos
 version: 1.5.0
-
-storage:
-  files:
-    - path: /etc/hostname
-      mode: 0644
-      contents:
-        inline: my-coreos-node
-
-    - path: /etc/motd
-      mode: 0644
-      contents:
-        inline: |
-          Welcome to Fedora CoreOS!
-
-systemd:
-  units:
-    - name: example.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Example Service
-        After=network-online.target
-
-        [Service]
-        ExecStart=/usr/bin/bash -c "echo 'Hello from the Example Service!'"
-
-        [Install]
-        WantedBy=multi-user.target
-
 passwd:
   users:
     - name: core
